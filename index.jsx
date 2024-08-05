@@ -9,7 +9,7 @@ import VanDetail from "./pages/Vans/VanDetail"
 import Income from "./pages/Host/Income"
 import Reviews from "./pages/Host/Reviews"
 import Layout from "./components/Layout"
-import HostLayout from "./pages/Host/HostLayout"
+import HostLayout from "./components/HostLayout"
 
 import "./server"
 import Dashboard from './pages/Host/Dashboard';
