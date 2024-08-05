@@ -1,10 +1,12 @@
 import React from "react"
-import {Outlet} from "react-router-dom"
+import {Link, Outlet} from "react-router-dom"
 
 export default function Dashboard() {
     return (
         <>
-            <h1>Dashboard goes here</h1>
+        
+            <Link to="/host/income">Income</Link>
+            <Link to="/host/reviews">Reviews</Link>
             <Outlet />
         </>
     )
