@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { NavLink, Outlet, useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { NavLink, Outlet, useParams, Link, useOutletContext } from "react-router-dom";
+
 export default function HostVanDetail() {
   const { id } = useParams();
 const [currentValue,setCurrentValue] = useState(null)
@@ -55,7 +55,7 @@ const [currentValue,setCurrentValue] = useState(null)
                 Photos
               </NavLink>
         </nav>
-        <Outlet/>
+        <Outlet context={{currentValue}}/>
     </section>
 
     </>
