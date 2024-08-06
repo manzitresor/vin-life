@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, Outlet, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 export default function HostVanDetail() {
   const { id } = useParams();
@@ -9,6 +9,12 @@ const [currentValue,setCurrentValue] = useState(null)
       .then(res => res.json())
       .then(result => setCurrentValue(result.vans[0]))
   },[])
+
+  const styledActive = {
+    fontWeight: "bold",
+    textDecoration: "underline",
+    color: "#161616"
+}
 
   if(!currentValue) {
     return <h1>Loading...</h1>
@@ -28,7 +34,30 @@ const [currentValue,setCurrentValue] = useState(null)
           <h3>{currentValue.name}</h3>
           <h4>${currentValue.price}/day</h4>
         </div>
+        <nav className="host-van-detail-nav">
+              <NavLink
+                to="."
+                end
+                style={({isActive}) => isActive ? styledActive : null}
+              >
+                Details
+              </NavLink>
+              <NavLink
+                to="pricing"
+                style={({isActive}) => isActive ? styledActive : null}
+              >
+                Pricing
+              </NavLink>
+              <NavLink
+                to="photos"
+                style={({isActive}) => isActive ? styledActive : null}
+              >
+                Photos
+              </NavLink>
+        </nav>
+        <Outlet/>
     </section>
+
     </>
   )
 }
